@@ -1,1 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Manual para periodistas</title>
+  <script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@2.16.105/build/pdf.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/dearpdf/dearpdf/dearpdf.min.js"></script>
+  <style>
+    body {
+      margin: 0;
+      background: #f8f8f8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    #flipbook {
+      width: 90%;
+      height: 90vh;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+      border-radius: 10px;
+      background: #fff;
+    }
+  </style>
+</head>
+<body>
+  <div id="flipbook"></div>
+  <script>
+    DearPDF.create({
+      element: '#flipbook',
+      source: 'https://iguecha.github.io/manualparaperiodistas-pdf/Manual%20para%20periodistas%20frente%20a%20la%20ESCNNA_compressed.pdf',
+      flipType: '3d',
+      backgroundColor: '#ffffff',
+      enableDownload: true,
+      coverMode: true
+    });
+  </script>
+</body>
+</html>
 
