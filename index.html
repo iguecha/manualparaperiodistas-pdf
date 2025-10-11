@@ -3,8 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <title>Manual para periodistas</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Librería de Flipbook (DearFlip) -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@2.16.105/build/pdf.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/gh/dearpdf/dearpdf/dearpdf.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/dearflip@2.1.3/dist/dflip.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/dearflip@2.1.3/dist/dflip.min.js"></script>
+
   <style>
     body {
       margin: 0;
@@ -13,28 +19,32 @@
       justify-content: center;
       align-items: center;
       height: 100vh;
+      font-family: sans-serif;
     }
     #flipbook {
       width: 90%;
       height: 90vh;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.2);
       border-radius: 10px;
       background: #fff;
     }
   </style>
 </head>
 <body>
-  <div id='flipbook'></div>
+  <div id="flipbook" class="df-container"></div>
+
   <script>
-    DearPDF.create({
-      element: '#flipbook',
-      source: 'https://iguecha.github.io/manualparaperiodistas-pdf/Manual%20para%20periodistas%20frente%20a%20la%20ESCNNA_compressed.pdf',
-      flipType: '3d',
-      backgroundColor: '#ffffff',
-      enableDownload: true,
-      coverMode: true
+    jQuery(document).ready(function () {
+      // Inicializa el flipbook
+      var flipBook = jQuery("#flipbook").flipBook({
+        pdf: "https://iguecha.github.io/manualparaperiodistas-pdf/Manual%20para%20periodistas%20frente%20a%20la%20ESCNNA_compressed.pdf",
+        backgroundColor: "#ffffff",
+        webgl: true,           // efecto 3D real
+        downloadPDF: true,     // botón de descarga
+        autoEnableOutline: true,
+        lightBox: false,       // visible directamente, no en modal
+      });
     });
   </script>
 </body>
 </html>
-
