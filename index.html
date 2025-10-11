@@ -33,18 +33,22 @@
 <body>
   <div id="flipbook" class="df-container"></div>
 
-  <script>
-    jQuery(document).ready(function () {
-      // Inicializa el flipbook
-      var flipBook = jQuery("#flipbook").flipBook({
-        pdf: "https://iguecha.github.io/manualparaperiodistas-pdf/Manual%20para%20periodistas%20frente%20a%20la%20ESCNNA_compressed.pdf",
-        backgroundColor: "#ffffff",
-        webgl: true,           // efecto 3D real
-        downloadPDF: true,     // botón de descarga
-        autoEnableOutline: true,
-        lightBox: false,       // visible directamente, no en modal
-      });
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@2.16.105/build/pdf.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/dearflip@2.1.3/dist/dflip.min.js"></script>
+
+<script>
+  jQuery(document).ready(function () {
+    $("#flipbook").flipBook({
+      pdf: "https://iguecha.github.io/manualparaperiodistas-pdf/manual.pdf",
+      backgroundColor: "#ffffff",
+      webgl: true,
+      downloadPDF: true,
+      autoEnableOutline: true,
+      lightBox: false,
     });
-  </script>
+  });
+</script>
+
 </body>
 </html>
